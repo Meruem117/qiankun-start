@@ -44,34 +44,34 @@ registerMicroApps(
             loader,
             activeRule: '/vue3',
         },
-        // {
-        //     name: 'react16',
-        //     entry: '//localhost:7100',
-        //     container: '#subapp-viewport',
-        //     loader,
-        //     activeRule: '/react16',
-        // },
-        // {
-        //     name: 'react15',
-        //     entry: '//localhost:7102',
-        //     container: '#subapp-viewport',
-        //     loader,
-        //     activeRule: '/react15',
-        // },
-        // {
-        //     name: 'angular9',
-        //     entry: '//localhost:7103',
-        //     container: '#subapp-viewport',
-        //     loader,
-        //     activeRule: '/angular9',
-        // },
-        // {
-        //     name: 'purehtml',
-        //     entry: '//localhost:7104',
-        //     container: '#subapp-viewport',
-        //     loader,
-        //     activeRule: '/purehtml',
-        // },
+        {
+            name: 'react16',
+            entry: '//localhost:7100',
+            container: '#subapp-viewport',
+            loader,
+            activeRule: '/react16',
+        },
+        {
+            name: 'react15',
+            entry: '//localhost:7102',
+            container: '#subapp-viewport',
+            loader,
+            activeRule: '/react15',
+        },
+        {
+            name: 'angular9',
+            entry: '//localhost:7103',
+            container: '#subapp-viewport',
+            loader,
+            activeRule: '/angular9',
+        },
+        {
+            name: 'purehtml',
+            entry: '//localhost:7104',
+            container: '#subapp-viewport',
+            loader,
+            activeRule: '/purehtml',
+        },
     ], {
         beforeLoad: [
             (app) => {
