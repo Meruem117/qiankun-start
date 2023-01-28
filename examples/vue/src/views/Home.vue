@@ -33,6 +33,10 @@ export default {
                 done()
             }).catch(_ => { })
         },
+
+        test() {
+            alert('test')
+        }
     },
 }
 </script>
