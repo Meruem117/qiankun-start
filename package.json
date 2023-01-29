@@ -8,19 +8,6 @@
         "type": "git",
         "url": "git+https://github.com/Meruem117/qiankun-start.git"
     },
-    "bugs": {
-        "url": "https://github.com/Meruem117/qiankun-start/issues"
-    },
-    "homepage": "https://github.com/Meruem117/qiankun-start#readme",
-    "sideEffects": false,
-    "main": "./lib/index.js",
-    "module": "./es/index.js",
-    "types": "./es/index.d.ts",
-    "files": [
-        "dist",
-        "es",
-        "lib"
-    ],
     "scripts": {
         "install-all": "npm-run-all --parallel install:*",
         "start-all": "npm-run-all --parallel start:*",
