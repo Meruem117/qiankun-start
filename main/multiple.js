@@ -1,6 +1,6 @@
 import {
     loadMicroApp
-} from '../../es'
+} from 'qiankun'
 
 let app
 

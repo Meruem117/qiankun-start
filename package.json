@@ -22,10 +22,10 @@
         "lib"
     ],
     "scripts": {
+        "install-all": "npm-run-all --parallel install:*",
+        "start-all": "npm-run-all --parallel start:*",
+        "start-multiple-all": "run-p start-main-multiple start:react15 start:vue",
         "start-vue": "npm-run-all --parallel start:main start:vue start:vue3",
-        "examples:install": "npm-run-all --serial build install:*",
-        "examples:start": "npm-run-all --parallel start:*",
-        "examples:start-multiple": "run-p start-main-multiple start:react15 start:vue",
         "install:main": "cd main && yarn",
         "start:main": "cd main && yarn start",
         "start-main-multiple": "cd main && yarn start:multiple",

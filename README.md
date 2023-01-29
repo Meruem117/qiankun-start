@@ -2,7 +2,6 @@
 Demo project about qiankun
 
 ```sh
-$ yarn install
-$ yarn examples:install
-$ yarn examples:start
+$ yarn install-all
+$ yarn start-all
 ```

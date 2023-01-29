@@ -5,7 +5,7 @@ import {
     runAfterFirstMounted,
     setDefaultMountApp,
     start
-} from '../../es'
+} from 'qiankun'
 import './index.less'
 
 /**
