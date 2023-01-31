@@ -6,6 +6,7 @@ import {
     setDefaultMountApp,
     start
 } from 'qiankun'
+import request from './utils/request'
 import './index.less'
 
 /**
@@ -36,6 +37,9 @@ registerMicroApps(
             container: '#subapp-viewport',
             loader,
             activeRule: '/vue',
+            props: {
+                request
+            }
         },
         {
             name: 'vue3',

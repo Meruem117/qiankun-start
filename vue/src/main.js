@@ -16,8 +16,10 @@ let instance = null
 
 function render(props = {}) {
     const {
-        container
+        container,
+        request
     } = props
+    console.log(request)
     router = new VueRouter({
         base: window.__POWERED_BY_QIANKUN__ ? '/vue' : '/',
         mode: 'history',
