@@ -19,7 +19,9 @@ function render(props = {}) {
         container,
         request
     } = props
-    console.log(request)
+    Object.keys(request).forEach(key => {
+        Vue.prototype['$' + key] = request[key]
+    })
     router = new VueRouter({
         base: window.__POWERED_BY_QIANKUN__ ? '/vue' : '/',
         mode: 'history',
