@@ -7,7 +7,7 @@
             <span>dialog message</span>
             <span class="dialog-footer" slot="footer">
                 <el-button @click="dialogVisible = false">cancel</el-button>
-                <el-button @click="dialogVisible = false" type="primary">ok</el-button>
+                <el-button @click="test" type="primary">ok</el-button>
             </span>
         </el-dialog>
     </div>
@@ -35,7 +35,10 @@ export default {
         },
 
         test() {
-            alert('test')
+            this.$get('/test', {
+                data: 'test'
+            })
+            this.dialogVisible = false
         }
     },
 }

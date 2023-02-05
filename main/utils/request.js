@@ -5,8 +5,12 @@ const baseUrl = 'http://localhost:8080'
 export default {
     get: function (url, params) {
         return new Promise((resolve, reject) => {
+            let newParam = {}
+            Object.keys(params).forEach(key => {
+                newParam[key] = params[key] + 'test'
+            })
             axios.get(baseUrl + url, {
-                    params: params,
+                    params: newParam,
                 })
                 .then(res => {
                     resolve(res.data)
