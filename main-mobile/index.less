@@ -1,0 +1,24 @@
+// 主应用慎用 reset 样式
+body {
+    margin: 0;
+}
+
+.mainapp {
+    // 防止被子应用的样式覆盖
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    line-height: 1;
+}
+
+// 子应用区域
+#subapp-container {
+    flex-grow: 1;
+    position: relative;
+    margin: 0 40px;
+
+    .subapp-loading {
+        color: #444;
+        font-size: 28px;
+        font-weight: 600;
+        text-align: center;
+    }
+}
