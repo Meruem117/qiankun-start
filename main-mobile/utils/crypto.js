@@ -3,42 +3,40 @@ import {
     SM4
 } from 'gm-crypto'
 
-export const fileEncrypt = (content, pwd) => {
-    let key = CryptoJS.enc.Utf8.parse(pwd);
-    let srcs = CryptoJS.enc.Utf8.parse(content);
-    const encrypted = CryptoJS.AES.encrypt(srcs, key, {
+// AES
+export const encrypt = (str, keyStr) => {
+    let key = CryptoJS.enc.Utf8.parse(keyStr)
+    let srcs = CryptoJS.enc.Utf8.parse(str)
+    const encrypt = CryptoJS.AES.encrypt(srcs, key, {
         mode: CryptoJS.mode.ECB,
         padding: CryptoJS.pad.Pkcs7
     })
-    return encrypted
+    return encrypt.toString()
 }
-export const fileDecrypt = (content, pwd) => {
-    let key = CryptoJS.enc.Utf8.parse(pwd);
-    const decrypted = CryptoJS.AES.decrypt(content, key, {
-        mode: CryptoJS.mode.ECB,
-        padding: CryptoJS.pad.Pkcs7
-    }).toString(CryptoJS.enc.Utf8);
-    return decrypted
-}
-export const encrypt = (word, keyStr) => {
-    let key = CryptoJS.enc.Utf8.parse(keyStr);
-    let srcs = CryptoJS.enc.Utf8.parse(word);
-    const encrypted = CryptoJS.AES.encrypt(srcs, key, {
+export const decrypt = (str, keyStr) => {
+    let key = CryptoJS.enc.Utf8.parse(keyStr)
+    let decrypt = CryptoJS.AES.decrypt(str, key, {
         mode: CryptoJS.mode.ECB,
         padding: CryptoJS.pad.Pkcs7
     })
-    return encrypted.toString()
-}
-export const decrypt = (word, keyStr) => {
-    let key = CryptoJS.enc.Utf8.parse(keyStr);
-    let decrypt = CryptoJS.AES.decrypt(word, key, {
-        mode: CryptoJS.mode.ECB,
-        padding: CryptoJS.pad.Pkcs7
-    });
     return CryptoJS.enc.Utf8.stringify(decrypt).toString()
 }
 
-
+// SM4
+export const SM4Encrypt = (str, key) => {
+    const encrypt = SM4.encrypt(str, stringToHex(key), {
+        inputEncoding: 'utf8',
+        outputEncoding: 'base64'
+    })
+    return encrypt
+}
+export const SM4Decrypt = (str, key) => {
+    const decrypt = SM4.decrypt(str, stringToHex(key), {
+        inputEncoding: 'base64',
+        outputEncoding: 'utf8'
+    })
+    return decrypt
+}
 export const stringToHex = (str) => {
     let val = ''
     for (let i = 0; i < str.length; i++) {
@@ -46,17 +44,22 @@ export const stringToHex = (str) => {
     }
     return val
 }
-export const SM4Encrypt = (message, key) => {
-    const SM4encrypted = SM4.encrypt(message, stringToHex(key), {
-        inputEncoding: 'utf8',
-        outputEncoding: 'base64'
+
+// File
+export const fileEncrypt = (content, pwd) => {
+    let key = CryptoJS.enc.Utf8.parse(pwd)
+    let srcs = CryptoJS.enc.Utf8.parse(content)
+    const encrypt = CryptoJS.AES.encrypt(srcs, key, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
     })
-    return SM4encrypted
+    return encrypt
 }
-export const SM4Decrypt = (message, key) => {
-    const SM4decrypted = SM4.decrypt(message, stringToHex(key), {
-        inputEncoding: 'base64',
-        outputEncoding: 'utf8'
+export const fileDecrypt = (content, pwd) => {
+    let key = CryptoJS.enc.Utf8.parse(pwd)
+    const decrypt = CryptoJS.AES.decrypt(content, key, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
     })
-    return SM4decrypted
+    return decrypt.toString(CryptoJS.enc.Utf8)
 }
