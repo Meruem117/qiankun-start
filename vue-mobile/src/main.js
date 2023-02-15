@@ -4,12 +4,15 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import routes from './router'
 import store from './store'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import {
+    Button,
+    Uploader
+} from 'vant'
 
 Vue.config.productionTip = false
 
-Vue.use(ElementUI)
+Vue.use(Button)
+Vue.use(Uploader)
 
 let router = null
 let instance = null
