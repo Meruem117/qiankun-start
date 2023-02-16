@@ -1,6 +1,9 @@
 <template>
     <div class="home">
-        <van-button type="primary" @click="test">测试</van-button>
+        <van-button type="primary" @click="testGet">Get</van-button>
+        <van-button type="primary" @click="testPost">Post</van-button>
+        <van-button type="primary" @click="testPut">Put</van-button>
+        <van-button type="primary" @click="testDelete">Delete</van-button>
     </div>
 </template>
 
@@ -12,13 +15,34 @@ export default {
         return {}
     },
     methods: {
-        test() {
+        testGet() {
             this.$get('/test', {
-                orgcode: '3204',
-                type: '12',
-                name: 'test'
+                data: 'test'
+            }).then(res => {
+                console.log(res)
             })
-        }
+        },
+        testPost() {
+            this.$post('/test', {
+                data: 'test'
+            }).then(res => {
+                console.log(res)
+            })
+        },
+        testPut() {
+            this.$put('/test/1', {
+                data: 'test'
+            }).then(res => {
+                console.log(res)
+            })
+        },
+        testDelete() {
+            this.$delete('/test/1', {
+                data: 'test'
+            }).then(res => {
+                console.log(res)
+            })
+        },
     },
 }
 </script>
