@@ -7,6 +7,8 @@
         <van-button type="primary" @click="testPut">Put</van-button>
         <br><br>
         <van-button type="primary" @click="testDelete">Delete</van-button>
+        <br><br>
+        <van-uploader v-model="fileList" :after-read="afterRead" />
     </div>
 </template>
 
@@ -15,7 +17,9 @@ export default {
     name: 'home',
     components: {},
     data() {
-        return {}
+        return {
+            fileList: []
+        }
     },
     methods: {
         testGet() {
@@ -45,6 +49,9 @@ export default {
             }).then(res => {
                 console.log(res)
             })
+        },
+        afterRead(file) {
+
         },
     },
 }
