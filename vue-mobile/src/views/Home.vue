@@ -1,8 +1,11 @@
 <template>
     <div class="home">
         <van-button type="primary" @click="testGet">Get</van-button>
+        <br><br>
         <van-button type="primary" @click="testPost">Post</van-button>
+        <br><br>
         <van-button type="primary" @click="testPut">Put</van-button>
+        <br><br>
         <van-button type="primary" @click="testDelete">Delete</van-button>
     </div>
 </template>
