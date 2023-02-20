@@ -8,7 +8,9 @@
         <br><br>
         <van-button type="primary" @click="testDelete">Delete</van-button>
         <br><br>
-        <van-uploader v-model="fileList" :after-read="afterRead" />
+        <van-uploader v-model="picList" :after-read="afterRead" />
+        <br><br>
+        <van-uploader v-model="fileList" :after-read="afterRead" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt" />
     </div>
 </template>
 
@@ -18,6 +20,7 @@ export default {
     components: {},
     data() {
         return {
+            picList: [],
             fileList: []
         }
     },
@@ -51,7 +54,23 @@ export default {
             })
         },
         afterRead(file) {
-
+            let fileArr = []
+            if (file instanceof Array && file.length) {
+                fileArr = file
+            } else {
+                fileArr.push({ file: file.file })
+            }
+            fileArr.forEach(item => {
+                item.status = 'uploading'
+                item.message = 'uploading...'
+                let that = this
+                let formData = new FormData()
+                formData.append('file', item.file)
+                formData.append('bucket', 'simple')
+                that.$postFile('/test/upload', formData).then(res => {
+                    console.log(res)
+                })
+            })
         },
     },
 }
